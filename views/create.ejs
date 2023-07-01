@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create Message</h1>
+    <form action="/create" method="POST">
+        <% if(user){ %>
+            <label for="author">Author</label>
+            <input type="text" name="author" value="<%= user.name %>">
+            <label for="title">Title</label>
+            <input name="title" placeholder="Enter Title of the post" type="text">
+            <label for="text">Text</label>
+            <input name="text" placeholder="Enter your text" type="text">
+            <button>Create</button>
+        <% } else { %>
+            <p><a href="/login">Log In</a> to create a post</p>
+        <% } %>
+    </form>
+</body>
+</html>

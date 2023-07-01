@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MembersOnly | Messages</title>
+</head>
+<body>
+    Messages
+    <div class="message">
+        <% if(messages.length > 0){ %>
+
+            <% messages.forEach(message => { %>
+                <%= message.createdAt %>
+                <% if(user){ %>
+                    <p><%= message.author %></p>
+                <% } else{ %>
+                    <p>Login to view author</p>
+                <% } %>
+            
+                <h3><%= message.title %></h3>
+                <span><%= message.text %></span>
+                <% if(user){ %>
+                    <p><%= message.like %></p><a href="/">Like</a>
+                <% } else{ %>
+                    <p>No user</p>
+                <% } %>
+
+                <% if(user && user.name == "admin"){ %>
+                    <a href="/">Delete</a>
+                <% } %>
+            <% }); %>           
+            
+        <% } else { %>
+            <p>No messages found</p>
+        <% } %>
+    </div>
+</body>
+</html>
